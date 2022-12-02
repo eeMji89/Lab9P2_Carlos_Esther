@@ -59,6 +59,26 @@ public class AdminBi_Clerigo {
             }
         }
     }
+    public void escribir(){
+        FileOutputStream fw = null;
+        ObjectOutputStream bw = null;
+        
+        try {
+            fw = new FileOutputStream(archivo);
+            bw = new ObjectOutputStream(fw);
+            
+            for (Clerigo c : listaClerigos) {
+                bw.writeObject(c);
+            }
+        } catch (Exception e) {
+        }finally{
+            try {
+                fw.close();
+                bw.close();
+            } catch (Exception e) {
+            }
+        }
+    }
     
     
 }//fin clase

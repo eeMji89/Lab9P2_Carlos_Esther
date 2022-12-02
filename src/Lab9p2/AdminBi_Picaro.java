@@ -63,6 +63,27 @@ public class AdminBi_Picaro {
     }
     
     
+    public void escribir(){
+        FileOutputStream fw = null;
+        ObjectOutputStream bw = null;
+        
+        try {
+            fw = new FileOutputStream(archivo);
+            bw = new ObjectOutputStream(fw);
+            
+            for (Picaro t : listaPicaros) {
+                bw.writeObject(t);
+            }
+        } catch (Exception e) {
+        }finally{
+            try {
+                fw.close();
+                bw.close();
+            } catch (Exception e) {
+            }
+        }
+    }
+    
     
     
 }//fin clase
