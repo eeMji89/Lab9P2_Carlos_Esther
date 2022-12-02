@@ -532,6 +532,7 @@ public class Main extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Personaje Creado exitosamente");
         
         File personaje = new File("./Personajes//"+clase+".txt");
+        System.out.println("Estas bien mamon");
         
     }//GEN-LAST:event_jb_crearMouseClicked
 
