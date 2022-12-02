@@ -2,6 +2,7 @@ package Lab9p2;
 
 import java.io.File;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 
@@ -21,7 +22,8 @@ public class Main extends javax.swing.JFrame {
         jp_mago.setVisible(false);
         jp_barbaro.setVisible(false);
         jp_picaro.setVisible(false);
-        File archivo = new File("./Personajes");
+        
+       DefaultComboBoxModel sp = (DefaultComboBoxModel) jc_spersonaje.getModel();
        
     }
 
@@ -81,7 +83,7 @@ public class Main extends javax.swing.JFrame {
         jb_crear = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jc_spersonaje = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jPanel4 = new javax.swing.JPanel();
@@ -339,7 +341,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jc_spersonaje, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(jLabel20)))
@@ -357,7 +359,7 @@ public class Main extends javax.swing.JFrame {
                         .addGap(78, 78, 78)
                         .addComponent(jLabel20)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jc_spersonaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(74, Short.MAX_VALUE))
         );
 
@@ -531,8 +533,8 @@ public class Main extends javax.swing.JFrame {
          }
         JOptionPane.showMessageDialog(this, "Personaje Creado exitosamente");
         
-        File personaje = new File("./Personajes//"+clase+".txt");
-        System.out.println("Estas bien mamon");
+        /*File personaje = new File("./Personajes//"+clase+".txt");
+        System.out.println("Estas bien mamon");*/
         
     }//GEN-LAST:event_jb_crearMouseClicked
 
@@ -574,7 +576,6 @@ private ArrayList <Personajes> Personajes = new ArrayList();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -614,6 +615,7 @@ private ArrayList <Personajes> Personajes = new ArrayList();
     private javax.swing.JComboBox<String> jc_magia;
     private javax.swing.JComboBox<String> jc_nac;
     private javax.swing.JList<String> jc_peliminar;
+    private javax.swing.JComboBox<String> jc_spersonaje;
     private javax.swing.JComboBox<String> jc_tipo;
     private javax.swing.JComboBox<String> jc_tipo1;
     private javax.swing.JComboBox<String> jc_tipo2;
