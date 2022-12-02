@@ -15,20 +15,7 @@ public class Main extends javax.swing.JFrame {
         jp_mago.setVisible(false);
         jp_barbaro.setVisible(false);
         jp_picaro.setVisible(false);
-        String clase = jc_clase.getSelectedItem().toString();
-        if (clase.equals("Clerigo")) {
-            jp_clerigo.setVisible(true);
-            
-        }
-        if (clase.equals("Barbaro")) {
-            jp_barbaro.setVisible(true);
-        }
-        if (clase.equals("Mago")) {
-            jp_mago.setVisible(true);
-        }
-        if (clase.equals("Picaro")) {
-            jp_picaro.setVisible(true);
-        }
+        
     }
 
     /**
@@ -267,6 +254,11 @@ public class Main extends javax.swing.JFrame {
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 80, -1));
 
         jb_crear.setText("Crear");
+        jb_crear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crearMouseClicked(evt);
+            }
+        });
         jPanel1.add(jb_crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, -1, -1));
 
         jTabbedPane1.addTab("Crear Personajes", jPanel1);
@@ -345,11 +337,50 @@ public class Main extends javax.swing.JFrame {
 
     private void jc_claseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jc_claseActionPerformed
         // TODO add your handling code here:
+        String clase = jc_clase.getSelectedItem().toString();
+        if (clase.equals("Clerigo")) {
+            jp_clerigo.setVisible(true);
+            
+        jp_mago.setVisible(false);
+        jp_barbaro.setVisible(false);
+        jp_picaro.setVisible(false);
+            
+        }
+        if (clase.equals("Barbaro")) {
+            jp_barbaro.setVisible(true);
+            jp_clerigo.setVisible(false);
+        jp_mago.setVisible(false);
+       
+        jp_picaro.setVisible(false);
+        }
+        
+        if (clase.equals("Mago")) {
+            jp_mago.setVisible(true);
+            jp_clerigo.setVisible(false);
+        
+        jp_barbaro.setVisible(false);
+        jp_picaro.setVisible(false);
+        }
+        if (clase.equals("Picaro")) {
+            jp_picaro.setVisible(true);
+            jp_clerigo.setVisible(false);
+        jp_mago.setVisible(false);
+        jp_barbaro.setVisible(false);
+        
+        }
     }//GEN-LAST:event_jc_claseActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jb_crearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearMouseClicked
+        // TODO add your handling code here:
+        String clase = jc_clase.getSelectedItem().toString();
+        
+        
+        
+    }//GEN-LAST:event_jb_crearMouseClicked
 
     /**
      * @param args the command line arguments
