@@ -1,5 +1,6 @@
 package Lab9p2;
 
+import java.io.File;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -15,6 +16,7 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        
         jp_clerigo.setVisible(false);
         jp_mago.setVisible(false);
         jp_barbaro.setVisible(false);
@@ -34,12 +36,6 @@ public class Main extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jc_clase = new javax.swing.JComboBox<>();
-        jp_mago = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jc_magia = new javax.swing.JComboBox<>();
-        jLabel16 = new javax.swing.JLabel();
-        jc_tipo1 = new javax.swing.JComboBox<>();
         jp_clerigo = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jt_dd = new javax.swing.JTextField();
@@ -47,6 +43,12 @@ public class Main extends javax.swing.JFrame {
         jt_inv = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jc_tipo = new javax.swing.JComboBox<>();
+        jc_clase = new javax.swing.JComboBox<>();
+        jp_mago = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jc_magia = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        jc_tipo1 = new javax.swing.JComboBox<>();
         jp_barbaro = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jc_arma = new javax.swing.JComboBox<>();
@@ -97,27 +99,6 @@ public class Main extends javax.swing.JFrame {
         jLabel1.setText("Seleccione la clase de personaje");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
-        jc_clase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Clerigo", "Barbaro", "Mago", "Picaro" }));
-        jc_clase.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jc_claseActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jc_clase, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 171, -1));
-
-        jLabel10.setText("Tipo de Magia");
-
-        jc_magia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mago Blanco", "Mago negro", "Mago Sanador" }));
-        jc_magia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jc_magiaActionPerformed(evt);
-            }
-        });
-
-        jLabel16.setText("Tipo de personaje");
-
-        jc_tipo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Support", "Tank" }));
-
         jLabel3.setText("Dios o demonio en el que cree");
 
         jLabel6.setText("Tipo de invocacion");
@@ -159,26 +140,46 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
+        jPanel1.add(jp_clerigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, -1, -1));
+
+        jc_clase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Clerigo", "Barbaro", "Mago", "Picaro" }));
+        jc_clase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jc_claseActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jc_clase, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 171, -1));
+
+        jLabel10.setText("Tipo de Magia");
+
+        jc_magia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mago Blanco", "Mago negro", "Mago Sanador" }));
+        jc_magia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jc_magiaActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setText("Tipo de personaje");
+
+        jc_tipo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Support", "Tank" }));
+
         javax.swing.GroupLayout jp_magoLayout = new javax.swing.GroupLayout(jp_mago);
         jp_mago.setLayout(jp_magoLayout);
         jp_magoLayout.setHorizontalGroup(
             jp_magoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_magoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jp_magoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_magoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel10)
-                        .addComponent(jc_magia, 0, 206, Short.MAX_VALUE)
-                        .addComponent(jLabel16)
-                        .addComponent(jc_tipo1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jp_clerigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jp_magoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel10)
+                    .addComponent(jc_magia, 0, 206, Short.MAX_VALUE)
+                    .addComponent(jLabel16)
+                    .addComponent(jc_tipo1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
         jp_magoLayout.setVerticalGroup(
             jp_magoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_magoLayout.createSequentialGroup()
-                .addComponent(jp_clerigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(236, 236, 236)
                 .addComponent(jLabel10)
                 .addGap(18, 18, 18)
                 .addComponent(jc_magia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -454,8 +455,7 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         String clase = jc_clase.getSelectedItem().toString();
         if (clase.equals("Clerigo")) {
-            jp_clerigo.setVisible(true);
-            
+        jp_clerigo.setVisible(true);    
         jp_mago.setVisible(false);
         jp_barbaro.setVisible(false);
         jp_picaro.setVisible(false);
@@ -529,6 +529,9 @@ public class Main extends javax.swing.JFrame {
              Personajes.add(new Picaro(instrumento, robos, nombre, raza, estatura, peso, edad, hp, descripcion, nacionalidad, tipo, ac));
          }
         JOptionPane.showMessageDialog(this, "Personaje Creado exitosamente");
+        File archivo = new File("./Personajes");
+        File personaje = new File(".//Personajes//"+nombre+".txt");
+        
     }//GEN-LAST:event_jb_crearMouseClicked
 
     /**
