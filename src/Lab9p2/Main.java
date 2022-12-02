@@ -1,6 +1,7 @@
 package Lab9p2;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -24,6 +25,43 @@ public class Main extends javax.swing.JFrame {
         jp_picaro.setVisible(false);
         
        DefaultComboBoxModel sp = (DefaultComboBoxModel) jc_spersonaje.getModel();
+       adc = new AdminBi_Clerigo("./Clerigos");
+        try {
+            adc.cargar();
+            for (Clerigo cl : adc.getListaClerigos()) {
+                Personajes.add(cl);
+            }
+        } catch (Exception e) {
+        }
+       
+////        adb = new AdminBi_Barbaro("./Barbaros");
+//        try {
+//            adb.cargar();
+//            for (Barbaro ba : adb.getListaBarbaros()) {
+//                Personajes.add(ba);
+//            }
+//        } catch (Exception e) {
+//        }
+//       
+//        adm = new AdminBi_Mago("./Magos");
+//        try {
+//            adm.cargar();
+//            for (Mago ma : adm.getListaMagos()) {
+//                Personajes.add(ma);
+//            }
+//        } catch (Exception e) {
+//        }
+//        
+//        adp = new AdminBi_Picaro("./Picaros");
+//        try {
+//            adp.cargar();
+//            for (Picaro pi : adp.getListaPicaros()) {
+//                Personajes.add(pi);
+//            }
+//        } catch (Exception e) {
+//        }
+//        
+       
        
     }
 
@@ -511,6 +549,17 @@ public class Main extends javax.swing.JFrame {
              invocacion = jt_inv.getText();
              tipo = jc_tipo.getSelectedItem().toString();
              Personajes.add(new Clerigo(dios, invocacion, nombre, raza, estatura, peso, edad, hp, descripcion, nacionalidad,tipo,ac));
+             lista_Clerigos.add(new Clerigo(clase, invocacion, nombre, raza, estatura, peso, edad, hp, descripcion, nacionalidad, tipo, ac));
+             adc = new AdminBi_Clerigo("./Clerigos");
+             
+             try {
+                 adc.cargar();
+                 adc.setListaClerigos(lista_Clerigos);
+                 adc.escribir();
+             } catch (Exception e) {
+             }
+             
+             
              
          }
          if (clase.equals("Barbaro")) {
@@ -518,18 +567,42 @@ public class Main extends javax.swing.JFrame {
              tipo = jc_tipo2.getSelectedItem().toString();
              xp = Integer.parseInt(jt_xp.getText());
              Personajes.add(new Barbaro(arma, xp, nombre, raza, estatura, peso, edad, hp, descripcion, nacionalidad, tipo, ac));
+              adb = new AdminBi_Barbaro("./Barbaros");
+             
+             try {
+                 adb.cargar();
+                 adb.setListaBarbaros(lista_Barbaros);
+                 adb.escribir();
+             } catch (Exception e) {
+             }
              
          }
          if (clase.equals("Mago")) {
              magia = jc_magia.getSelectedItem().toString();
              tipo = jc_tipo1.getSelectedItem().toString();
              Personajes.add(new Mago(magia, nombre, raza, estatura, peso, edad, hp, descripcion, nacionalidad, tipo, ac));
+             adm = new AdminBi_Mago("./Magos");
+             
+             try {
+                 adm.cargar();
+                 adm.setListaMagos(lista_Magos);
+                 adm.escribir();
+             } catch (Exception e) {
+             }
          }
         if (clase.equals("Picaro")) {
              instrumento = jc_inst.getSelectedItem().toString();
              robos = Integer.parseInt(jt_robos.getText());
              tipo = jc_tipo3.getSelectedItem().toString();
              Personajes.add(new Picaro(instrumento, robos, nombre, raza, estatura, peso, edad, hp, descripcion, nacionalidad, tipo, ac));
+             adp = new AdminBi_Picaro("./Picaro");
+             
+             try {
+                 adp.cargar();
+                 adp.setListaPicaros(lista_Picaros);
+                 adp.escribir();
+             } catch (Exception e) {
+             }
          }
         JOptionPane.showMessageDialog(this, "Personaje Creado exitosamente");
         
@@ -634,4 +707,13 @@ private ArrayList <Personajes> Personajes = new ArrayList();
     private javax.swing.JTextField jt_robos;
     private javax.swing.JTextField jt_xp;
     // End of variables declaration//GEN-END:variables
+ArrayList<Clerigo> lista_Clerigos = new ArrayList();
+ArrayList<Barbaro> lista_Barbaros = new ArrayList();
+ArrayList<Mago> lista_Magos = new ArrayList();
+ArrayList<Picaro> lista_Picaros = new ArrayList();
+
+AdminBi_Clerigo adc;
+AdminBi_Barbaro adb;
+AdminBi_Mago adm;
+AdminBi_Picaro adp;
 }
