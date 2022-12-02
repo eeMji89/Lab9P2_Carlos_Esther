@@ -21,7 +21,8 @@ public class Main extends javax.swing.JFrame {
         jp_mago.setVisible(false);
         jp_barbaro.setVisible(false);
         jp_picaro.setVisible(false);
-        
+        File archivo = new File("./Personajes");
+       
     }
 
     /**
@@ -529,8 +530,8 @@ public class Main extends javax.swing.JFrame {
              Personajes.add(new Picaro(instrumento, robos, nombre, raza, estatura, peso, edad, hp, descripcion, nacionalidad, tipo, ac));
          }
         JOptionPane.showMessageDialog(this, "Personaje Creado exitosamente");
-        File archivo = new File("./Personajes");
-        File personaje = new File(".//Personajes//"+nombre+".txt");
+        
+        File personaje = new File("//Personajes//"+nombre+".txt");
         
     }//GEN-LAST:event_jb_crearMouseClicked
 
