@@ -1,10 +1,5 @@
 package Lab9p2;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
 /**
  *
  * @author ELIZABETH HERNANDEZ
@@ -16,6 +11,24 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        jp_clerigo.setVisible(false);
+        jp_mago.setVisible(false);
+        jp_barbaro.setVisible(false);
+        jp_picaro.setVisible(false);
+        String clase = jc_clase.getSelectedItem().toString();
+        if (clase.equals("Clerigo")) {
+            jp_clerigo.setVisible(true);
+            
+        }
+        if (clase.equals("Barbaro")) {
+            jp_barbaro.setVisible(true);
+        }
+        if (clase.equals("Mago")) {
+            jp_mago.setVisible(true);
+        }
+        if (clase.equals("Picaro")) {
+            jp_picaro.setVisible(true);
+        }
     }
 
     /**
@@ -36,10 +49,19 @@ public class Main extends javax.swing.JFrame {
         jt_dd = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jt_inv = new javax.swing.JTextField();
-        jb_crear = new javax.swing.JButton();
         jp_mago = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jp_barbaro = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jc_arma = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jp_picaro = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jc_inst = new javax.swing.JComboBox<>();
+        jLabel14 = new javax.swing.JLabel();
+        jt_robos = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jt_nombre = new javax.swing.JTextField();
         jc_Raza = new javax.swing.JComboBox<>();
@@ -54,6 +76,7 @@ public class Main extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jc_nac = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
+        jb_crear = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -78,8 +101,6 @@ public class Main extends javax.swing.JFrame {
 
         jLabel6.setText("Tipo de invocacion");
 
-        jb_crear.setText("Crear");
-
         javax.swing.GroupLayout jp_clerigoLayout = new javax.swing.GroupLayout(jp_clerigo);
         jp_clerigo.setLayout(jp_clerigoLayout);
         jp_clerigoLayout.setHorizontalGroup(
@@ -89,9 +110,8 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jp_clerigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3)
                     .addComponent(jLabel6)
-                    .addComponent(jt_dd)
-                    .addComponent(jt_inv)
-                    .addComponent(jb_crear, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
+                    .addComponent(jt_dd, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                    .addComponent(jt_inv))
                 .addContainerGap(138, Short.MAX_VALUE))
         );
         jp_clerigoLayout.setVerticalGroup(
@@ -105,51 +125,114 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
                 .addComponent(jt_inv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jb_crear)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jp_clerigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 71, 350, 350));
+        jPanel1.add(jp_clerigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 71, 350, 170));
+
+        jLabel10.setText("Tipo de Magia");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mago Blanco", "Mago negro", "Mago Sanador" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_magoLayout = new javax.swing.GroupLayout(jp_mago);
         jp_mago.setLayout(jp_magoLayout);
         jp_magoLayout.setHorizontalGroup(
             jp_magoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGroup(jp_magoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jp_magoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
         jp_magoLayout.setVerticalGroup(
             jp_magoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGroup(jp_magoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10)
+                .addGap(18, 18, 18)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(148, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jp_mago, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 71, 350, 350));
+        jPanel1.add(jp_mago, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 71, 350, 210));
+
+        jLabel11.setText("Tipo de arma");
+
+        jc_arma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pesada", "Ligera", "Escudo" }));
+
+        jLabel12.setText("Nivel de XP");
+
+        jTextField1.setText("jTextField1");
 
         javax.swing.GroupLayout jp_barbaroLayout = new javax.swing.GroupLayout(jp_barbaro);
         jp_barbaro.setLayout(jp_barbaroLayout);
         jp_barbaroLayout.setHorizontalGroup(
             jp_barbaroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGroup(jp_barbaroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jp_barbaroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel11)
+                    .addComponent(jc_arma, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel12)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
         jp_barbaroLayout.setVerticalGroup(
             jp_barbaroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 360, Short.MAX_VALUE)
+            .addGroup(jp_barbaroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jc_arma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel12)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jp_barbaro, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 68, 350, -1));
+        jPanel1.add(jp_barbaro, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 68, 350, 210));
+
+        jLabel13.setText("Tipo de instrumento ");
+
+        jc_inst.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Amuleto", "Arma", "Piedra Antigua" }));
+
+        jLabel14.setText("Cantidad de robos exitosos realizados");
 
         javax.swing.GroupLayout jp_picaroLayout = new javax.swing.GroupLayout(jp_picaro);
         jp_picaro.setLayout(jp_picaroLayout);
         jp_picaroLayout.setHorizontalGroup(
             jp_picaroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 360, Short.MAX_VALUE)
+            .addGroup(jp_picaroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jp_picaroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jc_inst, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                    .addComponent(jt_robos))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
         jp_picaroLayout.setVerticalGroup(
             jp_picaroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGroup(jp_picaroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jc_inst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel14)
+                .addGap(18, 18, 18)
+                .addComponent(jt_robos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jp_picaro, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 71, 360, 350));
+        jPanel1.add(jp_picaro, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 71, 360, 210));
 
         jLabel2.setText("Descripcion:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 180, -1));
@@ -182,6 +265,9 @@ public class Main extends javax.swing.JFrame {
 
         jLabel9.setText("Nacionalidad:");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 80, -1));
+
+        jb_crear.setText("Crear");
+        jPanel1.add(jb_crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, -1, -1));
 
         jTabbedPane1.addTab("Crear Personajes", jPanel1);
 
@@ -261,6 +347,10 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jc_claseActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -297,7 +387,13 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -313,9 +409,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton jb_crear;
     private javax.swing.JComboBox<String> jc_Raza;
+    private javax.swing.JComboBox<String> jc_arma;
     private javax.swing.JComboBox<String> jc_clase;
+    private javax.swing.JComboBox<String> jc_inst;
     private javax.swing.JComboBox<String> jc_nac;
     private javax.swing.JPanel jp_barbaro;
     private javax.swing.JPanel jp_clerigo;
@@ -328,5 +427,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jt_estatura;
     private javax.swing.JTextField jt_inv;
     private javax.swing.JTextField jt_nombre;
+    private javax.swing.JTextField jt_robos;
     // End of variables declaration//GEN-END:variables
 }
