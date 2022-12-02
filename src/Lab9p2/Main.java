@@ -42,7 +42,7 @@ public class Main extends javax.swing.JFrame {
         jtf_Peso = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jtf_estatura1 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel6peso = new javax.swing.JLabel();
         jtf_Peso1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jtf_Peso2 = new javax.swing.JTextField();
@@ -62,6 +62,11 @@ public class Main extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 28, 171, -1));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -130,8 +135,8 @@ public class Main extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 180, -1));
         jPanel1.add(jtf_estatura1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 160, -1));
 
-        jLabel6.setText("Peso:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 180, -1));
+        jLabel6peso.setText("Peso:");
+        jPanel1.add(jLabel6peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 180, -1));
         jPanel1.add(jtf_Peso1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 160, -1));
 
         jLabel7.setText("Edad:");
@@ -221,6 +226,10 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -263,7 +272,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel6peso;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
