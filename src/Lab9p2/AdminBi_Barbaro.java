@@ -18,21 +18,21 @@ import java.io.ObjectOutputStream;
  *
  * @author clago
  */
-public class AdminBi_Mago {
+public class AdminBi_Barbaro {
     
-    private ArrayList<Mago> listaMagos = new ArrayList();
+    private ArrayList<Barbaro> listaBarbaros = new ArrayList();
     private File archivo = null;
 
-    public AdminBi_Mago(String path) {
+    public AdminBi_Barbaro(String path) {
         archivo = new File(path);
     }
 
-    public ArrayList<Mago> getListaMagos() {
-        return listaMagos;
+    public ArrayList<Barbaro> getListaBarbaros() {
+        return listaBarbaros;
     }
 
-    public void setListaMagos(ArrayList<Mago> listaMagos) {
-        this.listaMagos = listaMagos;
+    public void setListaBarbaros(ArrayList<Barbaro> listaBarbaros) {
+        this.listaBarbaros = listaBarbaros;
     }
 
     public File getArchivo() {
@@ -45,20 +45,21 @@ public class AdminBi_Mago {
     
     public void cargar() throws FileNotFoundException, IOException{
         
-        listaMagos = new ArrayList();
-        Mago tmago;
+        listaBarbaros = new ArrayList();
+        Barbaro tbarbaro;
         
         if (archivo.exists()) {
+            
             FileInputStream entrada = new FileInputStream(archivo);
-            ObjectInputStream objeto = new ObjectInputStream(entrada);
+            ObjectInputStream object = new ObjectInputStream(entrada);
             
             try {
-                while ((tmago = (Mago) objeto.readObject()) != null) {
-                        listaMagos.add(tmago);
+                while ((tbarbaro = (Barbaro) object.readObject()) != null) {   
+                    listaBarbaros.add(tbarbaro);
+                    
                 }
             } catch (Exception e) {
             }
-            
         }
     }
     
@@ -68,12 +69,11 @@ public class AdminBi_Mago {
         ObjectOutputStream bw = null;
         
         try {
-            
             fw = new FileOutputStream(archivo);
             bw = new ObjectOutputStream(fw);
             
-            for (Mago a : listaMagos) {
-                bw.writeObject(a);
+            for (Barbaro t : listaBarbaros) {
+                bw.writeObject(t);
             }
         } catch (Exception e) {
         }finally{
