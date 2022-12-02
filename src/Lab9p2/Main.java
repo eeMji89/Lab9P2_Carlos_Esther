@@ -1,5 +1,8 @@
 package Lab9p2;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ELIZABETH HERNANDEZ
@@ -36,19 +39,27 @@ public class Main extends javax.swing.JFrame {
         jt_dd = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jt_inv = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jc_tipo = new javax.swing.JComboBox<>();
         jp_mago = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jc_magia = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        jc_tipo1 = new javax.swing.JComboBox<>();
         jp_barbaro = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jc_arma = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jt_xp = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jc_tipo2 = new javax.swing.JComboBox<>();
         jp_picaro = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jc_inst = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
         jt_robos = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jc_tipo3 = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jt_nombre = new javax.swing.JTextField();
         jc_Raza = new javax.swing.JComboBox<>();
@@ -64,7 +75,6 @@ public class Main extends javax.swing.JFrame {
         jc_nac = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jb_crear = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -88,6 +98,10 @@ public class Main extends javax.swing.JFrame {
 
         jLabel6.setText("Tipo de invocacion");
 
+        jLabel15.setText("Tipo de personaje");
+
+        jc_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lead" }));
+
         javax.swing.GroupLayout jp_clerigoLayout = new javax.swing.GroupLayout(jp_clerigo);
         jp_clerigo.setLayout(jp_clerigoLayout);
         jp_clerigoLayout.setHorizontalGroup(
@@ -98,7 +112,9 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel6)
                     .addComponent(jt_dd, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                    .addComponent(jt_inv))
+                    .addComponent(jt_inv)
+                    .addComponent(jLabel15)
+                    .addComponent(jc_tipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(138, Short.MAX_VALUE))
         );
         jp_clerigoLayout.setVerticalGroup(
@@ -112,19 +128,27 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
                 .addComponent(jt_inv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jc_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jp_clerigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 71, 350, 170));
+        jPanel1.add(jp_clerigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 71, 350, 230));
 
         jLabel10.setText("Tipo de Magia");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mago Blanco", "Mago negro", "Mago Sanador" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jc_magia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mago Blanco", "Mago negro", "Mago Sanador" }));
+        jc_magia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jc_magiaActionPerformed(evt);
             }
         });
+
+        jLabel16.setText("Tipo de personaje");
+
+        jc_tipo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Support", "Tank" }));
 
         javax.swing.GroupLayout jp_magoLayout = new javax.swing.GroupLayout(jp_mago);
         jp_mago.setLayout(jp_magoLayout);
@@ -132,9 +156,11 @@ public class Main extends javax.swing.JFrame {
             jp_magoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_magoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jp_magoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jp_magoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel10)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jc_magia, 0, 206, Short.MAX_VALUE)
+                    .addComponent(jLabel16)
+                    .addComponent(jc_tipo1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(138, Short.MAX_VALUE))
         );
         jp_magoLayout.setVerticalGroup(
@@ -143,8 +169,12 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel10)
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addComponent(jc_magia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jc_tipo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         jPanel1.add(jp_mago, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 71, 350, 210));
@@ -155,7 +185,9 @@ public class Main extends javax.swing.JFrame {
 
         jLabel12.setText("Nivel de XP");
 
-        jTextField1.setText("jTextField1");
+        jLabel17.setText("Tipo de personaje");
+
+        jc_tipo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lead", "Support", "Offensive" }));
 
         javax.swing.GroupLayout jp_barbaroLayout = new javax.swing.GroupLayout(jp_barbaro);
         jp_barbaro.setLayout(jp_barbaroLayout);
@@ -167,7 +199,9 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel11)
                     .addComponent(jc_arma, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
+                    .addComponent(jt_xp, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                    .addComponent(jLabel17)
+                    .addComponent(jc_tipo2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(138, Short.MAX_VALUE))
         );
         jp_barbaroLayout.setVerticalGroup(
@@ -180,8 +214,12 @@ public class Main extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel12)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addComponent(jt_xp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jc_tipo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jPanel1.add(jp_barbaro, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 68, 350, 210));
@@ -191,6 +229,10 @@ public class Main extends javax.swing.JFrame {
         jc_inst.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Amuleto", "Arma", "Piedra Antigua" }));
 
         jLabel14.setText("Cantidad de robos exitosos realizados");
+
+        jLabel18.setText("Tipo de personaje");
+
+        jc_tipo3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Spammer", "Tank" }));
 
         javax.swing.GroupLayout jp_picaroLayout = new javax.swing.GroupLayout(jp_picaro);
         jp_picaro.setLayout(jp_picaroLayout);
@@ -202,7 +244,9 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jc_inst, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                    .addComponent(jt_robos))
+                    .addComponent(jt_robos)
+                    .addComponent(jLabel18)
+                    .addComponent(jc_tipo3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(148, Short.MAX_VALUE))
         );
         jp_picaroLayout.setVerticalGroup(
@@ -216,7 +260,11 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jLabel14)
                 .addGap(18, 18, 18)
                 .addComponent(jt_robos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jc_tipo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jPanel1.add(jp_picaro, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 71, 360, 210));
@@ -248,7 +296,7 @@ public class Main extends javax.swing.JFrame {
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 60, -1));
 
         jc_nac.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Norfair", "Brinstar", "Maridia", "Zebes", "Crateria" }));
-        jPanel1.add(jc_nac, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 150, -1));
+        jPanel1.add(jc_nac, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 200, -1));
 
         jLabel9.setText("Nacionalidad:");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 80, -1));
@@ -259,22 +307,9 @@ public class Main extends javax.swing.JFrame {
                 jb_crearMouseClicked(evt);
             }
         });
-        jPanel1.add(jb_crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, -1, -1));
+        jPanel1.add(jb_crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 360, -1, -1));
 
         jTabbedPane1.addTab("Crear Personajes", jPanel1);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 434, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Modificar Personajes", jPanel2);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -370,16 +405,50 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jc_claseActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void jc_magiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jc_magiaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_jc_magiaActionPerformed
 
     private void jb_crearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearMouseClicked
-        // TODO add your handling code here:
+        // TODO add your handling code here:,,
+        String dios,invocacion,magia,arma,instrumento,tipo;
+        int xp=0,robos =0;
         String clase = jc_clase.getSelectedItem().toString();
+        String nombre = jt_nombre.getText();
+        String raza = jc_Raza.getSelectedItem().toString();
+        int estatura = Integer.parseInt(jt_estatura.getText());
+        int peso = Integer.parseInt(jt_Peso.getText());
+        int edad= Integer.parseInt(jt_edad.getText());
+        int hp=0 ,ac = 0;
+        String descripcion = jt_descripcion.getText();
+        String nacionalidad = jc_nac.getSelectedItem().toString();
         
-        
-        
+         if (clase.equals("Clerigo")) {
+             dios = jt_dd.getText();
+             invocacion = jt_inv.getText();
+             tipo = jc_tipo.getSelectedItem().toString();
+             Personajes.add(new Clerigo(dios, invocacion, nombre, raza, estatura, peso, edad, hp, descripcion, nacionalidad,tipo,ac));
+             
+         }
+         if (clase.equals("Barbaro")) {
+             arma = jc_arma.getSelectedItem().toString();
+             tipo = jc_tipo2.getSelectedItem().toString();
+             xp = Integer.parseInt(jt_xp.getText());
+             Personajes.add(new Barbaro(arma, xp, nombre, raza, estatura, peso, edad, hp, descripcion, nacionalidad, tipo, ac));
+             
+         }
+         if (clase.equals("Mago")) {
+             magia = jc_magia.getSelectedItem().toString();
+             tipo = jc_tipo1.getSelectedItem().toString();
+             Personajes.add(new Mago(magia, nombre, raza, estatura, peso, edad, hp, descripcion, nacionalidad, tipo, ac));
+         }
+        if (clase.equals("Picaro")) {
+             instrumento = jc_inst.getSelectedItem().toString();
+             robos = Integer.parseInt(jt_robos.getText());
+             tipo = jc_tipo3.getSelectedItem().toString();
+             Personajes.add(new Picaro(instrumento, robos, nombre, raza, estatura, peso, edad, hp, descripcion, nacionalidad, tipo, ac));
+         }
+        JOptionPane.showMessageDialog(this, "Personaje Creado exitosamente");
     }//GEN-LAST:event_jb_crearMouseClicked
 
     /**
@@ -416,15 +485,19 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }
+private ArrayList <Personajes> Personajes = new ArrayList();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -435,18 +508,21 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton jb_crear;
     private javax.swing.JComboBox<String> jc_Raza;
     private javax.swing.JComboBox<String> jc_arma;
     private javax.swing.JComboBox<String> jc_clase;
     private javax.swing.JComboBox<String> jc_inst;
+    private javax.swing.JComboBox<String> jc_magia;
     private javax.swing.JComboBox<String> jc_nac;
+    private javax.swing.JComboBox<String> jc_tipo;
+    private javax.swing.JComboBox<String> jc_tipo1;
+    private javax.swing.JComboBox<String> jc_tipo2;
+    private javax.swing.JComboBox<String> jc_tipo3;
     private javax.swing.JPanel jp_barbaro;
     private javax.swing.JPanel jp_clerigo;
     private javax.swing.JPanel jp_mago;
@@ -459,5 +535,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jt_inv;
     private javax.swing.JTextField jt_nombre;
     private javax.swing.JTextField jt_robos;
+    private javax.swing.JTextField jt_xp;
     // End of variables declaration//GEN-END:variables
 }
