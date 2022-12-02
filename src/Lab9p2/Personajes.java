@@ -1,11 +1,13 @@
 
 package Lab9p2;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ELIZABETH HERNANDEZ
  */
-public class Personajes {
+public class Personajes implements Serializable {
     protected String nombre;
     protected String raza;
     protected int estatura;
@@ -16,7 +18,8 @@ public class Personajes {
     protected String nacionalidad;
     protected String tipo;
     protected int Ac;
-
+    
+    private static final long SerialVersionUID = 777L;
     public Personajes() {
     }
 

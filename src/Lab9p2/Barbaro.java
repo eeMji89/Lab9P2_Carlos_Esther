@@ -11,7 +11,7 @@ package Lab9p2;
 public class Barbaro extends Personajes {
     private String arma;
     private int xp;
-
+private static final long SerialVersionUID=775L;
     public Barbaro() {
         super();
     }

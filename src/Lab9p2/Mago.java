@@ -10,7 +10,7 @@ package Lab9p2;
  */
 public class Mago extends Personajes {
     private String magia;
-
+    private static final long SerialVersionUID=779L;
     public Mago() {
         super();
     }

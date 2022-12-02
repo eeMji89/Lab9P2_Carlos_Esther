@@ -11,7 +11,7 @@ package Lab9p2;
 public class Picaro extends Personajes {
     private String instrumento;
     private int robos;
-
+    private static final long SerialVersionUID=771L;
     public Picaro() {
         super();
     }
