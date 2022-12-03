@@ -29,7 +29,9 @@ public class Main extends javax.swing.JFrame {
         try {
             adc.cargar();
             lista_Clerigos= adc.getListaClerigos();
-            
+            for (int i = 0; i < lista_Clerigos.size(); i++) {
+                System.out.println(lista_Clerigos.get(i));
+            }
             for (Clerigo cl : adc.getListaClerigos()) {
                 Personajes.add(cl); 
                 
@@ -40,6 +42,10 @@ public class Main extends javax.swing.JFrame {
               adb = new AdminBi_Barbaro("./Barbaros");
         try {
             adb.cargar();
+            lista_Barbaros = adb.getListaBarbaros();
+            for (int i = 0; i < lista_Barbaros.size(); i++) {
+                System.out.println(lista_Barbaros.get(i));
+            }
             for (Barbaro ba : adb.getListaBarbaros()) {
                 Personajes.add(ba);
             }
@@ -49,6 +55,10 @@ public class Main extends javax.swing.JFrame {
         adm = new AdminBi_Mago("./Magos");
         try {
             adm.cargar();
+            for (int i = 0; i < lista_Magos.size(); i++) {
+                System.out.println(lista_Magos.get(i));
+            }
+            lista_Magos = adm.getListaMagos();
             for (Mago ma : adm.getListaMagos()) {
                 Personajes.add(ma);
             }
@@ -58,6 +68,10 @@ public class Main extends javax.swing.JFrame {
         adp = new AdminBi_Picaro("./Picaros");
         try {
             adp.cargar();
+            lista_Picaros = adp.getListaPicaros();
+            for (int i = 0; i < lista_Picaros.size(); i++) {
+                System.out.println(lista_Picaros.get(i));
+            }
             for (Picaro pi : adp.getListaPicaros()) {
                 Personajes.add(pi);
                 
