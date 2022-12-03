@@ -3,6 +3,8 @@ package Lab9p2;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.DefaultListModel;
@@ -79,6 +81,15 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        auto = new javax.swing.JDialog();
+        jLabel22 = new javax.swing.JLabel();
+        jc_spersonaje1 = new javax.swing.JComboBox<>();
+        jc_spersonaje2 = new javax.swing.JComboBox<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jl_combate = new javax.swing.JList<>();
+        jButton4 = new javax.swing.JButton();
+        pvp = new javax.swing.JDialog();
+        pvm = new javax.swing.JDialog();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -139,7 +150,72 @@ public class Main extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jb_auto = new javax.swing.JButton();
+
+        jLabel22.setText("Seleccione los dos personajes");
+
+        jl_combate.setModel(new DefaultListModel());
+        jScrollPane3.setViewportView(jl_combate);
+
+        jButton4.setText("Comenzar");
+
+        javax.swing.GroupLayout autoLayout = new javax.swing.GroupLayout(auto.getContentPane());
+        auto.getContentPane().setLayout(autoLayout);
+        autoLayout.setHorizontalGroup(
+            autoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(autoLayout.createSequentialGroup()
+                .addGroup(autoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(autoLayout.createSequentialGroup()
+                        .addGap(236, 236, 236)
+                        .addComponent(jLabel22))
+                    .addGroup(autoLayout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addGroup(autoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jc_spersonaje2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jc_spersonaje1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)))
+                    .addGroup(autoLayout.createSequentialGroup()
+                        .addGap(284, 284, 284)
+                        .addComponent(jButton4)))
+                .addContainerGap(175, Short.MAX_VALUE))
+        );
+        autoLayout.setVerticalGroup(
+            autoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(autoLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel22)
+                .addGap(24, 24, 24)
+                .addComponent(jc_spersonaje1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jc_spersonaje2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
+        );
+
+        javax.swing.GroupLayout pvpLayout = new javax.swing.GroupLayout(pvp.getContentPane());
+        pvp.getContentPane().setLayout(pvpLayout);
+        pvpLayout.setHorizontalGroup(
+            pvpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        pvpLayout.setVerticalGroup(
+            pvpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout pvmLayout = new javax.swing.GroupLayout(pvm.getContentPane());
+        pvm.getContentPane().setLayout(pvmLayout);
+        pvmLayout.setHorizontalGroup(
+            pvmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        pvmLayout.setVerticalGroup(
+            pvmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -436,6 +512,11 @@ public class Main extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jl_peliminar);
 
         jButton1.setText("Eliminar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -480,8 +561,13 @@ public class Main extends javax.swing.JFrame {
         jButton3.setText("PvM");
         jPanel5.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, -1, -1));
 
-        jButton4.setText("Modo Espectador");
-        jPanel5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
+        jb_auto.setText("Modo Espectador");
+        jb_auto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_autoMouseClicked(evt);
+            }
+        });
+        jPanel5.add(jb_auto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
 
         jTabbedPane1.addTab("Combate", jPanel5);
 
@@ -642,10 +728,225 @@ public class Main extends javax.swing.JFrame {
         DefaultListModel listap = new DefaultListModel();        
         for (int i = 0; i < Personajes.size(); i++) {
             
-            listap.addElement(Personajes.get(i).toString());
+            listap.addElement(((Personajes)Personajes.get(i)).getNombre());
         }
         jl_peliminar.setModel(listap);
     }//GEN-LAST:event_jTabbedPane1StateChanged
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        String nombre = (String)jl_peliminar.getSelectedValue();
+        for (int i = 0; i < Personajes.size(); i++) {
+            if (nombre.equals(Personajes.get(i).getNombre())) {                
+                Personajes.remove(i);  
+            }            
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jb_autoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_autoMouseClicked
+        // TODO add your handling code here:
+        DefaultComboBoxModel sp = (DefaultComboBoxModel) jc_spersonaje1.getModel();
+        for (int i = 0; i < Personajes.size(); i++) {
+            sp.addElement(Personajes.get(i).getNombre());
+        }
+        jc_spersonaje.setModel(sp);
+        auto.setVisible(true);
+        DefaultComboBoxModel sp2 = (DefaultComboBoxModel) jc_spersonaje2.getModel();
+        for (int i = 0; i < Personajes.size(); i++) {
+            sp.addElement(Personajes.get(i).getNombre());
+        }
+        jc_spersonaje.setModel(sp);
+        int x = 0;
+        String nombre1 = jc_spersonaje1.getSelectedItem().toString();
+        String nombre2 = jc_spersonaje2.getSelectedItem().toString();
+        Personajes p1,p2;
+        for (int i = 0; i < Personajes.size(); i++) {
+           if (nombre1.equals(Personajes.get(i))) {
+            
+        } 
+        }
+        
+        ArrayList P = Personajes;
+         
+      /*              double hpj1 = ((Personajes) P.get(p0)).getHp();
+                    double hpj2 = ((Personajes) P.get(op8)).getHp();
+                    double CS1 = 0, CS2 = 0, DM1 = 0, DM2 = 0;
+                    double bono = 0, bonoc = 0;
+                    double AC1 = ((Personajes) P.get(p0)).getAc(), AC2 = ((Personajes) P.get(op8)).getAc();
+
+                    if (P.get(p0) instanceof Clerigo || P.get(op8) instanceof Clerigo) {
+                        if (P.get(p0) instanceof Clerigo) {
+                            CS1 = 97;
+                            DM1 = 5 + rd.nextInt(15);
+                        } else if (P.get(op8) instanceof Clerigo) {
+                            CS2 = 97;
+                            DM2 = 5 + rd.nextInt(15);
+                        }
+                    } else if (P.get(p0) instanceof Barbaro || P.get(op8) instanceof Barbaro) {
+                        if (P.get(p0) instanceof Barbaro) {
+                            CS1 = 93;
+                            DM1 = 15 + rd.nextInt(30);
+                        } else if (P.get(op8) instanceof Barbaro) {
+                            CS2 = 93;
+                            DM2 = 15 + rd.nextInt(30);
+                        }
+
+                    } else if (P.get(p0) instanceof Mago || P.get(op8) instanceof Mago) {
+                        if (P.get(p0) instanceof Mago) {
+                            CS1 = 0;
+                            DM1 = 5 + rd.nextInt(10);
+                        } else if (P.get(op8) instanceof Mago) {
+                            CS2 = 0;
+                            DM2 = 5 + rd.nextInt(10);
+                        }
+                    } else if (P.get(p0) instanceof Picaro || P.get(op8) instanceof Picaro) {
+                        if (P.get(p0) instanceof Picaro) {
+                            CS1 = 80;
+                            DM1 = 15 + rd.nextInt(25);
+                        } else if (P.get(op8) instanceof Picaro) {
+                            CS2 = 80;
+                            DM2 = 15 + rd.nextInt(25);
+                        }
+                    }
+                    if (((Personajes) P.get(p0)).getTipo().equals("Lead") || ((Personajes) P.get(op8)).getTipo().equals("Lead")) {
+                        if (((Personajes) P.get(p0)).getTipo().equals("Lead") && (P.get(p0) instanceof Clerigo || P.get(p0) instanceof Barbaro)) {
+                            bono = CS1 * 0.05;
+                            CS1 = CS1 + bono;
+                        } else if (((Personajes) P.get(op8)).getTipo().equals("Lead") && (P.get(op8) instanceof Clerigo || P.get(op8) instanceof Barbaro)) {
+                            bono = CS2 * 0.05;
+                            CS2 = CS2 + bono;
+                        }
+                    } else if (((Personajes) P.get(p0)).getTipo().equals("Support") || ((Personajes) P.get(op8)).getTipo().equals("Support")) {
+                        if (((Personajes) P.get(p0)).getTipo().equals("Support") && (P.get(p0) instanceof Mago || P.get(p0) instanceof Barbaro)) {
+                            bono = CS1 * 0.02;
+                            CS1 = CS1 + bono;
+                            bonoc = AC1*0.03;
+                            AC1=AC1+bonoc;
+
+                        } else if (((Personajes) P.get(op8)).getTipo().equals("Support") && (P.get(op8) instanceof Mago || P.get(op8) instanceof Barbaro)) {
+                            bono = CS2 * 0.02;
+                            CS2 = CS2 + bono;
+                            bonoc = AC2*0.03;
+                            AC2=AC2+bonoc;
+                        }
+                    } else if (((Personajes) P.get(p0)).getTipo().equals("Offensive") || ((Personajes) P.get(op8)).getTipo().equals("Offensive")) {
+                        if (((Personajes) P.get(p0)).getTipo().equals("Offensive") && P.get(p0) instanceof Barbaro) {
+                            bono = DM1 * 0.05;
+                            DM1 = DM1 + bono;
+                            hpj1=hpj1-(hpj1*0.01);
+                        } else if (((Personajes) P.get(op8)).getTipo().equals("Offensive") && P.get(op8) instanceof Barbaro) {
+                            bono = DM2 * 0.05;
+                            DM2 = DM2 + bono;
+                            hpj2=hpj2-(hpj2*0.01);
+                        }
+                    } else if (((Personajes) P.get(p0)).getTipo().equals("Spammer") || ((Personajes) P.get(op8)).getTipo().equals("Spammer")) {
+                        if (((Personajes) P.get(p0)).getTipo().equals("Spammer") && P.get(p0) instanceof Picaro) {
+                            bonoc = AC1*0.02;
+                            AC1=AC1+bonoc;
+                            bono = DM1 * 0.03;
+                            DM1 = DM1 + bono;
+                            CS1 = CS1-(CS1*0.01);
+                        } else if (((Personajes) P.get(op8)).getTipo().equals("Spammer") && P.get(op8) instanceof Picaro) {
+                            bonoc = AC1*0.02;
+                            AC2 = AC2+bonoc;
+                             bono = DM2 * 0.03;
+                            DM2 = DM2 + bono;
+                            CS1 = CS1-(CS1*0.01);
+                        }
+                    } else if (((Personajes) P.get(p0)).getTipo().equals("Tank") || ((Personajes) P.get(op8)).getTipo().equals("Tank")) {
+                        if (((Personajes) P.get(p0)).getTipo().equals("Tank") && (P.get(p0) instanceof Mago || P.get(p0) instanceof Picaro)) {
+                            hpj1=hpj1+(hpj1*0.02);
+                        } else if (((Personajes) P.get(op8)).getTipo().equals("Tank") && (P.get(op8) instanceof Mago || P.get(op8) instanceof Picaro)) {
+                             hpj2=hpj2+(hpj2*0.02);
+                        }
+                    }
+                    while (hpj1 > 0 && hpj2 > 0) {
+                        System.out.println("Turno Jugador 1: (Usuario)");
+                        System.out.println("Desea \n 1. Atacar?"
+                                + "\n2. Defender?");
+                        int ad = lea.nextInt();
+                        boolean flag0 = false;
+                        while (flag0 == false) {
+                            switch (ad) {
+                                case 1:
+                                    int ard = 1 + rd.nextInt(100);
+                                    if (ard > AC2) { 
+                                        if (ard> CS2) {
+                                            DM1 = DM1*2;
+                                        hpj2=hpj2-DM1;
+                                        System.out.println("Ha acertado el doble del golpe!!");
+                                        }
+                                        hpj2=hpj2-DM1;
+                                        System.out.println("Ha acertado eL golpe!!");
+                                    }
+                                    else if (ard<AC2) {
+                                        System.out.println("No ha hecho daño...");
+                                        
+                                    }
+                                     System.out.println(hpj1);
+                                    System.out.println(hpj2);
+                                    flag0 = true;
+                                    break;
+                                case 2:
+                                    AC1 = AC1 +15;
+                                    flag0 = true;
+                                    break;
+                                default:
+                                    System.out.println("Opcion invalida, intente de nuevo!...");
+                                    flag0 = false;
+                            }
+                            
+                        }
+                        if (hpj2>0) {
+                            System.out.println("Turno Jugador 2: ");
+                        System.out.println("Desea \n 1. Atacar?"
+                                + "\n2. Defender?");
+                        int ad1 = lea.nextInt();
+                        boolean flagp = false;
+                        while (flagp == false) {
+                            switch (ad1) {
+                                case 1:
+                                    int ard = 1 + rd.nextInt(100);
+                                    if (ard > AC1) { 
+                                        if (ard> CS2) {
+                                            DM2 = DM2*2;
+                                        hpj1=hpj1-DM2;
+                                        System.out.println("Ha acertado el doble del golpe!!");
+                                        }
+                                        hpj1=hpj1-DM2;
+                                        System.out.println("Ha acertado eL golpe!!");
+                                    }
+                                    else if (ard<AC1) {
+                                        System.out.println("No ha hecho daño...");
+                                        
+                                    }
+                                    System.out.println(hpj1);
+                                    System.out.println(hpj2);
+                                    flagp = true;
+                                    break;
+                                case 2:
+                                    AC1 = AC1 +15;
+                                    flagp = true;
+                                    break;
+                                default:
+                                    System.out.println("Opcion invalida, intente de nuevo!...");
+                                    flagp = false;
+                            }
+                        }
+                    }
+                        }
+                        
+                    System.out.println("El juego ha terminado...");
+                    if (hpj1>hpj2) {
+                        System.out.println("El jugador 1 ha ganado");
+                    }
+                    else{
+                        System.out.println("El jugador 2 ha ganado");
+                    }
+        
+        */
+        
+    }//GEN-LAST:event_jb_autoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -691,8 +992,10 @@ public class Main extends javax.swing.JFrame {
         return Listar;
     }
 private ArrayList <Personajes> Personajes = new ArrayList();
-
+private Scanner lea = new Scanner(System.in);
+private Random rd = new Random();
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog auto;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -711,6 +1014,7 @@ private ArrayList <Personajes> Personajes = new ArrayList();
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -725,7 +1029,9 @@ private ArrayList <Personajes> Personajes = new ArrayList();
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton jb_auto;
     private javax.swing.JButton jb_buscar;
     private javax.swing.JButton jb_crear;
     private javax.swing.JComboBox<String> jc_Raza;
@@ -735,11 +1041,14 @@ private ArrayList <Personajes> Personajes = new ArrayList();
     private javax.swing.JComboBox<String> jc_magia;
     private javax.swing.JComboBox<String> jc_nac;
     private javax.swing.JComboBox<String> jc_spersonaje;
+    private javax.swing.JComboBox<String> jc_spersonaje1;
+    private javax.swing.JComboBox<String> jc_spersonaje2;
     private javax.swing.JComboBox<String> jc_tipo;
     private javax.swing.JComboBox<String> jc_tipo1;
     private javax.swing.JComboBox<String> jc_tipo2;
     private javax.swing.JComboBox<String> jc_tipo3;
     private javax.swing.JList<String> jl_atributes;
+    private javax.swing.JList<String> jl_combate;
     private javax.swing.JList<String> jl_peliminar;
     private javax.swing.JPanel jp_barbaro;
     private javax.swing.JPanel jp_clerigo;
@@ -754,6 +1063,8 @@ private ArrayList <Personajes> Personajes = new ArrayList();
     private javax.swing.JTextField jt_nombre;
     private javax.swing.JTextField jt_robos;
     private javax.swing.JTextField jt_xp;
+    private javax.swing.JDialog pvm;
+    private javax.swing.JDialog pvp;
     // End of variables declaration//GEN-END:variables
 ArrayList<Clerigo> lista_Clerigos = new ArrayList();
 ArrayList<Barbaro> lista_Barbaros = new ArrayList();
