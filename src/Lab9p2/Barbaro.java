@@ -4,11 +4,13 @@
  */
 package Lab9p2;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ELIZABETH HERNANDEZ
  */
-public class Barbaro extends Personajes {
+public class Barbaro extends Personajes implements Serializable{
     private String arma;
     private int xp;
 private static final long SerialVersionUID=775L;
