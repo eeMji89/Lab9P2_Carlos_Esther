@@ -23,7 +23,7 @@ public class Main extends javax.swing.JFrame {
         jp_mago.setVisible(false);
         jp_barbaro.setVisible(false);
         jp_picaro.setVisible(false);
-        
+        System.out.println("Carlitd");
        DefaultComboBoxModel sp = (DefaultComboBoxModel) jc_spersonaje.getModel();
        adc = new AdminBi_Clerigo("./Clerigos");
         try {
@@ -33,35 +33,35 @@ public class Main extends javax.swing.JFrame {
             }
         } catch (Exception e) {
         }
+        
+              adb = new AdminBi_Barbaro("./Barbaros");
+        try {
+            adb.cargar();
+            for (Barbaro ba : adb.getListaBarbaros()) {
+                Personajes.add(ba);
+            }
+        } catch (Exception e) {
+        }
        
-////        adb = new AdminBi_Barbaro("./Barbaros");
-//        try {
-//            adb.cargar();
-//            for (Barbaro ba : adb.getListaBarbaros()) {
-//                Personajes.add(ba);
-//            }
-//        } catch (Exception e) {
-//        }
-//       
-//        adm = new AdminBi_Mago("./Magos");
-//        try {
-//            adm.cargar();
-//            for (Mago ma : adm.getListaMagos()) {
-//                Personajes.add(ma);
-//            }
-//        } catch (Exception e) {
-//        }
-//        
-//        adp = new AdminBi_Picaro("./Picaros");
-//        try {
-//            adp.cargar();
-//            for (Picaro pi : adp.getListaPicaros()) {
-//                Personajes.add(pi);
-//            }
-//        } catch (Exception e) {
-//        }
-//        
-       
+        adm = new AdminBi_Mago("./Magos");
+        try {
+            adm.cargar();
+            for (Mago ma : adm.getListaMagos()) {
+                Personajes.add(ma);
+            }
+        } catch (Exception e) {
+        }
+        
+        adp = new AdminBi_Picaro("./Picaros");
+        try {
+            adp.cargar();
+            for (Picaro pi : adp.getListaPicaros()) {
+                Personajes.add(pi);
+            }
+        } catch (Exception e) {
+        }
+        
+        System.out.println(Listar(Personajes));
        
     }
 
@@ -77,6 +77,7 @@ public class Main extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jc_clase = new javax.swing.JComboBox<>();
         jp_clerigo = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jt_dd = new javax.swing.JTextField();
@@ -84,7 +85,6 @@ public class Main extends javax.swing.JFrame {
         jt_inv = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jc_tipo = new javax.swing.JComboBox<>();
-        jc_clase = new javax.swing.JComboBox<>();
         jp_mago = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jc_magia = new javax.swing.JComboBox<>();
@@ -142,6 +142,14 @@ public class Main extends javax.swing.JFrame {
         jLabel1.setText("Seleccione la clase de personaje");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
+        jc_clase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Clerigo", "Barbaro", "Mago", "Picaro" }));
+        jc_clase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jc_claseActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jc_clase, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 171, -1));
+
         jLabel3.setText("Dios o demonio en el que cree");
 
         jLabel6.setText("Tipo de invocacion");
@@ -185,14 +193,6 @@ public class Main extends javax.swing.JFrame {
 
         jPanel1.add(jp_clerigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, -1, -1));
 
-        jc_clase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Clerigo", "Barbaro", "Mago", "Picaro" }));
-        jc_clase.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jc_claseActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jc_clase, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 171, -1));
-
         jLabel10.setText("Tipo de Magia");
 
         jc_magia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mago Blanco", "Mago negro", "Mago Sanador" }));
@@ -222,7 +222,7 @@ public class Main extends javax.swing.JFrame {
         jp_magoLayout.setVerticalGroup(
             jp_magoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_magoLayout.createSequentialGroup()
-                .addGap(236, 236, 236)
+                .addContainerGap()
                 .addComponent(jLabel10)
                 .addGap(18, 18, 18)
                 .addComponent(jc_magia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -525,8 +525,7 @@ public class Main extends javax.swing.JFrame {
         
         if (clase.equals("Mago")) {
             jp_mago.setVisible(true);
-            jp_clerigo.setVisible(false);
-        
+            jp_clerigo.setVisible(false);       
         jp_barbaro.setVisible(false);
         jp_picaro.setVisible(false);
         }
@@ -657,6 +656,15 @@ public class Main extends javax.swing.JFrame {
                 new Main().setVisible(true);
             }
         });
+        
+        
+    }
+    public static String Listar(ArrayList p){
+        String Listar ="";
+        for (Object o : p) {
+           Listar+= p.indexOf(o)+"-"+o+"\n";
+        }
+        return Listar;
     }
 private ArrayList <Personajes> Personajes = new ArrayList();
 
