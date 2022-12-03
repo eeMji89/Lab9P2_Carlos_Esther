@@ -4,11 +4,13 @@
  */
 package Lab9p2;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ELIZABETH HERNANDEZ
  */
-public class Mago extends Personajes {
+public class Mago extends Personajes implements Serializable {
     private String magia;
     private static final long SerialVersionUID=779L;
     public Mago() {

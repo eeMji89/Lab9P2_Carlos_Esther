@@ -1,14 +1,16 @@
 
 package Lab9p2;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ELIZABETH HERNANDEZ
  */
-public class Clerigo extends Personajes {
+public class Clerigo extends Personajes implements Serializable {
     private String Dcreyente;
     private String Tinvocacion;
-    private static final long SerialVersionUID=772L;
+    private static final long SerialVersionUID = 772L;
     public Clerigo() {
         super();
     }

@@ -4,11 +4,13 @@
  */
 package Lab9p2;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ELIZABETH HERNANDEZ
  */
-public class Picaro extends Personajes {
+public class Picaro extends Personajes implements Serializable{
     private String instrumento;
     private int robos;
     private static final long SerialVersionUID=771L;
