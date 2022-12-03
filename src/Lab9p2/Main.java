@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 
@@ -32,36 +33,20 @@ public class Main extends javax.swing.JFrame {
        adp = new AdminBi_Picaro("./Picaros");
         try {
             adc.cargar();
-//            lista_Clerigos= adc.getListaClerigos();
-//            for (int i = 0; i < lista_Clerigos.size(); i++) {
-//                System.out.println(lista_Clerigos.get(i));
-//            }
-
+                      
             for (Clerigo cl : adc.getListaClerigos()) {
-                Personajes.add(cl); 
-                
+                Personajes.add(cl);               
             }
-
             adb.cargar();
-            lista_Barbaros = adb.getListaBarbaros();
-            
+            lista_Barbaros = adb.getListaBarbaros();            
             for (Barbaro ba : adb.getListaBarbaros()) {
                 Personajes.add(ba);
-            }
-        
-       
-        
-        
-            adm.cargar();
-           
+            }       
+            adm.cargar();           
             lista_Magos = adm.getListaMagos();
             for (Mago ma : adm.getListaMagos()) {
                 Personajes.add(ma);
-            }
-        
-        
-        
-       
+            }      
             adp.cargar();
             lista_Picaros = adp.getListaPicaros();
                         for (Picaro pi : adp.getListaPicaros()) {
@@ -75,6 +60,13 @@ public class Main extends javax.swing.JFrame {
             System.out.println(Personajes.get(i));
         }
         DefaultComboBoxModel sp = (DefaultComboBoxModel) jc_spersonaje.getModel();
+        for (int i = 0; i < Personajes.size(); i++) {
+            sp.addElement(Personajes.get(i).getNombre());
+        }
+        jc_spersonaje.setModel(sp);
+        
+       
+        //jc_peliminar.
     }
     
     /**
@@ -134,8 +126,8 @@ public class Main extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jc_spersonaje = new javax.swing.JComboBox<>();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jb_buscar = new javax.swing.JButton();
+        jc_atributes = new java.awt.List();
         jPanel4 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -381,9 +373,14 @@ public class Main extends javax.swing.JFrame {
 
         jLabel20.setText("Seleccione un Personaje");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        jb_buscar.setText("Buscar");
+        jb_buscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_buscarMouseClicked(evt);
+            }
+        });
+
+        jc_atributes.setMultipleMode(DefaultListModel());
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -396,23 +393,29 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jc_spersonaje, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addComponent(jLabel20)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                        .addComponent(jLabel20))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(jb_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(51, 51, 51)
+                .addComponent(jc_atributes, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(72, 72, 72)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
+                        .addGap(150, 150, 150)
                         .addComponent(jLabel20)
                         .addGap(18, 18, 18)
-                        .addComponent(jc_spersonaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(74, Short.MAX_VALUE))
+                        .addComponent(jc_spersonaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jb_buscar))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jc_atributes, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Ver atributos de un personaje", jPanel3);
@@ -635,6 +638,21 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jb_crearMouseClicked
 
+    private void jb_buscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_buscarMouseClicked
+        // TODO add your handling code here:
+        //DefaultListModel lista = (DefaultListModel)jc_atributes.getModel(); 
+        String nombre = jc_spersonaje.getSelectedItem().toString();
+        for (int i = 0; i < Personajes.size(); i++) {
+            if (nombre.equals(Personajes.get(i))) {
+                
+                lista.addElement(Personajes.get(i).toString());
+            }
+        }
+        
+        
+        
+    }//GEN-LAST:event_jb_buscarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -712,12 +730,12 @@ private ArrayList <Personajes> Personajes = new ArrayList();
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton jb_buscar;
     private javax.swing.JButton jb_crear;
     private javax.swing.JComboBox<String> jc_Raza;
     private javax.swing.JComboBox<String> jc_arma;
+    private java.awt.List jc_atributes;
     private javax.swing.JComboBox<String> jc_clase;
     private javax.swing.JComboBox<String> jc_inst;
     private javax.swing.JComboBox<String> jc_magia;
