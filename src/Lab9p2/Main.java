@@ -663,10 +663,8 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_buscarMouseClicked
 
     private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
-        // TODO add your handling code here:
-        
-        DefaultListModel listap = (DefaultListModel) jl_peliminar.getModel();
-        
+        // TODO add your handling code here:       
+        DefaultListModel listap = new DefaultListModel();        
         for (int i = 0; i < Personajes.size(); i++) {
             
             listap.addElement(Personajes.get(i).toString());
