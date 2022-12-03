@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 
@@ -127,11 +128,12 @@ public class Main extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jc_spersonaje = new javax.swing.JComboBox<>();
         jb_buscar = new javax.swing.JButton();
-        jc_atributes = new java.awt.List();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jl_atributes = new javax.swing.JList<>();
         jPanel4 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jc_peliminar = new javax.swing.JList<>();
+        jl_peliminar = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
@@ -140,6 +142,12 @@ public class Main extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane1StateChanged(evt);
+            }
+        });
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -380,7 +388,8 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jc_atributes.setMultipleMode(DefaultListModel());
+        jl_atributes.setModel( new DefaultListModel());
+        jScrollPane2.setViewportView(jl_atributes);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -397,9 +406,9 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(73, 73, 73)
                         .addComponent(jb_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(51, 51, 51)
-                .addComponent(jc_atributes, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(91, 91, 91)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -408,22 +417,23 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(150, 150, 150)
                         .addComponent(jLabel20)
-                        .addGap(18, 18, 18)
+                        .addGap(22, 22, 22)
                         .addComponent(jc_spersonaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jb_buscar))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jc_atributes, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(56, Short.MAX_VALUE))
+                        .addGap(33, 33, 33)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Ver atributos de un personaje", jPanel3);
 
         jLabel19.setText("Seleccionar Personaje que desea Eliminar");
 
-        jc_peliminar.setToolTipText("");
-        jScrollPane1.setViewportView(jc_peliminar);
+        jl_peliminar.setModel( new DefaultListModel());
+        jl_peliminar.setToolTipText("");
+        jScrollPane1.setViewportView(jl_peliminar);
 
         jButton1.setText("Eliminar");
 
@@ -640,18 +650,29 @@ public class Main extends javax.swing.JFrame {
 
     private void jb_buscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_buscarMouseClicked
         // TODO add your handling code here:
-        //DefaultListModel lista = (DefaultListModel)jc_atributes.getModel(); 
+        DefaultListModel lista = (DefaultListModel) jl_atributes.getModel();
         String nombre = jc_spersonaje.getSelectedItem().toString();
         for (int i = 0; i < Personajes.size(); i++) {
-            if (nombre.equals(Personajes.get(i))) {
-                
+            if (nombre.equals(Personajes.get(i).getNombre())) {                
                 lista.addElement(Personajes.get(i).toString());
-            }
+            }            
         }
-        
+        jl_atributes.setModel(lista);
         
         
     }//GEN-LAST:event_jb_buscarMouseClicked
+
+    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+        // TODO add your handling code here:
+        
+        DefaultListModel listap = (DefaultListModel) jl_peliminar.getModel();
+        
+        for (int i = 0; i < Personajes.size(); i++) {
+            
+            listap.addElement(Personajes.get(i).toString());
+        }
+        jl_peliminar.setModel(listap);
+    }//GEN-LAST:event_jTabbedPane1StateChanged
 
     /**
      * @param args the command line arguments
@@ -730,22 +751,23 @@ private ArrayList <Personajes> Personajes = new ArrayList();
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton jb_buscar;
     private javax.swing.JButton jb_crear;
     private javax.swing.JComboBox<String> jc_Raza;
     private javax.swing.JComboBox<String> jc_arma;
-    private java.awt.List jc_atributes;
     private javax.swing.JComboBox<String> jc_clase;
     private javax.swing.JComboBox<String> jc_inst;
     private javax.swing.JComboBox<String> jc_magia;
     private javax.swing.JComboBox<String> jc_nac;
-    private javax.swing.JList<String> jc_peliminar;
     private javax.swing.JComboBox<String> jc_spersonaje;
     private javax.swing.JComboBox<String> jc_tipo;
     private javax.swing.JComboBox<String> jc_tipo1;
     private javax.swing.JComboBox<String> jc_tipo2;
     private javax.swing.JComboBox<String> jc_tipo3;
+    private javax.swing.JList<String> jl_atributes;
+    private javax.swing.JList<String> jl_peliminar;
     private javax.swing.JPanel jp_barbaro;
     private javax.swing.JPanel jp_clerigo;
     private javax.swing.JPanel jp_mago;
