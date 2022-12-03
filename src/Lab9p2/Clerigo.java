@@ -46,7 +46,7 @@ public class Clerigo extends Personajes  {
 
     @Override
     public String toString() {
-        return super.toString()+ "Clerigo{" + "Dcreyente=" + Dcreyente + ", Tinvocacion=" + Tinvocacion + '}';
+        return super.toString()+ "Es un Clerigo";
     }
     
     

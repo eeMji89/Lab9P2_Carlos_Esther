@@ -119,8 +119,8 @@ public class Personajes implements Serializable {
 
     @Override
     public String toString() {
-        return "Personajes{" + "nombre=" + nombre + ", raza=" + raza + ", estatura=" + estatura + ", peso=" + peso +",Años= "+edad+
-                 ",HP="+hp+", descripcion=" +descripcion + ", nacionalidad=" + nacionalidad+ ",Tipo="+tipo+",AC= "+Ac+", ";
+        return "Nombre = " + nombre + " | Raza = " + raza + "| Estatura = " + estatura + "| Peso = " + peso +"| Años = "+edad+
+                "| Descripcion = " +descripcion + "| Nacionalidad = " + nacionalidad+ "| Tipo = "+tipo+"| AC = "+Ac;
     }
     
     

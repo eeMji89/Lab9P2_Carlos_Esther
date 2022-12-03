@@ -469,44 +469,19 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Eliminar personajes", jPanel4);
 
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel21.setText("Seleccione Modo de Juego");
+        jPanel5.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 159, -1));
 
-        jButton2.setText("jButton2");
+        jButton2.setText("PvP");
+        jPanel5.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
 
-        jButton3.setText("jButton3");
+        jButton3.setText("PvM");
+        jPanel5.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, -1, -1));
 
-        jButton4.setText("jButton4");
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(128, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(232, 232, 232))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(jButton4)
-                        .addGap(86, 86, 86)
-                        .addComponent(jButton2)
-                        .addGap(84, 84, 84)
-                        .addComponent(jButton3)
-                        .addGap(117, 117, 117))))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jLabel21)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
-                .addContainerGap(337, Short.MAX_VALUE))
-        );
+        jButton4.setText("Modo Espectador");
+        jPanel5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
 
         jTabbedPane1.addTab("Combate", jPanel5);
 

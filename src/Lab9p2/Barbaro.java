@@ -48,7 +48,7 @@ private static final long SerialVersionUID=775L;
 
     @Override
     public String toString() {
-        return super.toString()+ " Barbaro{" + "arma=" + arma + ", xp=" + xp + '}';
+        return super.toString()+ "Es un Barbaro";
     }
     
 }
