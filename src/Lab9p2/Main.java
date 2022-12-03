@@ -24,66 +24,59 @@ public class Main extends javax.swing.JFrame {
         jp_barbaro.setVisible(false);
         jp_picaro.setVisible(false);
        
-       DefaultComboBoxModel sp = (DefaultComboBoxModel) jc_spersonaje.getModel();
+       
+       
        adc = new AdminBi_Clerigo("./Clerigos");
+       adb = new AdminBi_Barbaro("./Barbaros");
+       adm = new AdminBi_Mago("./Magos");
+       adp = new AdminBi_Picaro("./Picaros");
         try {
             adc.cargar();
-            lista_Clerigos= adc.getListaClerigos();
-            for (int i = 0; i < lista_Clerigos.size(); i++) {
-                System.out.println(lista_Clerigos.get(i));
-            }
+//            lista_Clerigos= adc.getListaClerigos();
+//            for (int i = 0; i < lista_Clerigos.size(); i++) {
+//                System.out.println(lista_Clerigos.get(i));
+//            }
+
             for (Clerigo cl : adc.getListaClerigos()) {
                 Personajes.add(cl); 
                 
             }
-        } catch (Exception e) {
-        }
-        
-              adb = new AdminBi_Barbaro("./Barbaros");
-        try {
+
             adb.cargar();
             lista_Barbaros = adb.getListaBarbaros();
-            for (int i = 0; i < lista_Barbaros.size(); i++) {
-                System.out.println(lista_Barbaros.get(i));
-            }
+            
             for (Barbaro ba : adb.getListaBarbaros()) {
                 Personajes.add(ba);
             }
-        } catch (Exception e) {
-        }
+        
        
-        adm = new AdminBi_Mago("./Magos");
-        try {
+        
+        
             adm.cargar();
-            for (int i = 0; i < lista_Magos.size(); i++) {
-                System.out.println(lista_Magos.get(i));
-            }
+           
             lista_Magos = adm.getListaMagos();
             for (Mago ma : adm.getListaMagos()) {
                 Personajes.add(ma);
             }
-        } catch (Exception e) {
-        }
         
-        adp = new AdminBi_Picaro("./Picaros");
-        try {
+        
+        
+       
             adp.cargar();
             lista_Picaros = adp.getListaPicaros();
-            for (int i = 0; i < lista_Picaros.size(); i++) {
-                System.out.println(lista_Picaros.get(i));
-            }
-            for (Picaro pi : adp.getListaPicaros()) {
+                        for (Picaro pi : adp.getListaPicaros()) {
                 Personajes.add(pi);
                 
             }
-        } catch (Exception e) {
+        
+       } catch (Exception e) {
         }
-       
         for (int i = 0; i < Personajes.size(); i++) {
             System.out.println(Personajes.get(i));
         }
+        DefaultComboBoxModel sp = (DefaultComboBoxModel) jc_spersonaje.getModel();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -599,7 +592,7 @@ public class Main extends javax.swing.JFrame {
              xp = Integer.parseInt(jt_xp.getText());
              Personajes.add(new Barbaro(arma, xp, nombre, raza, estatura, peso, edad, hp, descripcion, nacionalidad, tipo, ac));
               adb = new AdminBi_Barbaro("./Barbaros");
-             
+             lista_Barbaros.add(new Barbaro(arma, xp, nombre, raza, estatura, peso, edad, hp, descripcion, nacionalidad, tipo, ac));
              try {
                  adb.cargar();
                  adb.setListaBarbaros(lista_Barbaros);
@@ -613,7 +606,7 @@ public class Main extends javax.swing.JFrame {
              tipo = jc_tipo1.getSelectedItem().toString();
              Personajes.add(new Mago(magia, nombre, raza, estatura, peso, edad, hp, descripcion, nacionalidad, tipo, ac));
              adm = new AdminBi_Mago("./Magos");
-             
+             lista_Magos.add(new Mago(magia, nombre, raza, estatura, peso, edad, hp, descripcion, nacionalidad, tipo, ac));
              try {
                  adm.cargar();
                  adm.setListaMagos(lista_Magos);
@@ -627,7 +620,7 @@ public class Main extends javax.swing.JFrame {
              tipo = jc_tipo3.getSelectedItem().toString();
              Personajes.add(new Picaro(instrumento, robos, nombre, raza, estatura, peso, edad, hp, descripcion, nacionalidad, tipo, ac));
              adp = new AdminBi_Picaro("./Picaro");
-             
+             lista_Picaros.add(new Picaro(instrumento, robos, nombre, raza, estatura, peso, edad, hp, descripcion, nacionalidad, tipo, ac));
              try {
                  adp.cargar();
                  adp.setListaPicaros(lista_Picaros);

@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  * @author ELIZABETH HERNANDEZ
  */
-public class Picaro extends Personajes implements Serializable{
+public class Picaro extends Personajes {
     private String instrumento;
     private int robos;
     private static final long SerialVersionUID=771L;

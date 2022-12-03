@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  * @author ELIZABETH HERNANDEZ
  */
-public class Mago extends Personajes implements Serializable {
+public class Mago extends Personajes  {
     private String magia;
     private static final long SerialVersionUID=779L;
     public Mago() {

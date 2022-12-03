@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  * @author ELIZABETH HERNANDEZ
  */
-public class Barbaro extends Personajes implements Serializable{
+public class Barbaro extends Personajes {
     private String arma;
     private int xp;
 private static final long SerialVersionUID=775L;

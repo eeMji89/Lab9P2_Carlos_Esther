@@ -7,7 +7,7 @@ import java.io.Serializable;
  *
  * @author ELIZABETH HERNANDEZ
  */
-public class Clerigo extends Personajes implements Serializable {
+public class Clerigo extends Personajes  {
     private String Dcreyente;
     private String Tinvocacion;
     private static final long SerialVersionUID = 772L;
