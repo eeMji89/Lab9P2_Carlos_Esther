@@ -75,6 +75,7 @@ public class AdminBi_Barbaro {
             for (Barbaro t : listaBarbaros) {
                 bw.writeObject(t);
             }
+            bw.flush();
         } catch (Exception e) {
         }finally{
             try {

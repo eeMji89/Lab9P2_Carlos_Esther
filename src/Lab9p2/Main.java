@@ -23,13 +23,16 @@ public class Main extends javax.swing.JFrame {
         jp_mago.setVisible(false);
         jp_barbaro.setVisible(false);
         jp_picaro.setVisible(false);
-        System.out.println("Carlitd");
+       
        DefaultComboBoxModel sp = (DefaultComboBoxModel) jc_spersonaje.getModel();
        adc = new AdminBi_Clerigo("./Clerigos");
         try {
             adc.cargar();
+            lista_Clerigos= adc.getListaClerigos();
+            
             for (Clerigo cl : adc.getListaClerigos()) {
-                Personajes.add(cl);
+                Personajes.add(cl); 
+                
             }
         } catch (Exception e) {
         }
@@ -57,12 +60,14 @@ public class Main extends javax.swing.JFrame {
             adp.cargar();
             for (Picaro pi : adp.getListaPicaros()) {
                 Personajes.add(pi);
+                
             }
         } catch (Exception e) {
         }
-        
-        System.out.println(Listar(Personajes));
        
+        for (int i = 0; i < Personajes.size(); i++) {
+            System.out.println(Personajes.get(i));
+        }
     }
 
     /**
@@ -661,8 +666,8 @@ public class Main extends javax.swing.JFrame {
     }
     public static String Listar(ArrayList p){
         String Listar ="";
-        for (Object o : p) {
-           Listar+= p.indexOf(o)+"-"+o+"\n";
+        for (int i = 0; i < p.size(); i++) {
+            
         }
         return Listar;
     }

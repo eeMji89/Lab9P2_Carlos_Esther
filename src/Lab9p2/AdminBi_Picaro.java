@@ -74,6 +74,7 @@ public class AdminBi_Picaro {
             for (Picaro t : listaPicaros) {
                 bw.writeObject(t);
             }
+            bw.flush();
         } catch (Exception e) {
         }finally{
             try {

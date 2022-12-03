@@ -70,6 +70,7 @@ public class AdminBi_Clerigo {
             for (Clerigo c : listaClerigos) {
                 bw.writeObject(c);
             }
+            bw.flush();
         } catch (Exception e) {
         }finally{
             try {

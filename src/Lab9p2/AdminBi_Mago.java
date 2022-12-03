@@ -75,6 +75,8 @@ public class AdminBi_Mago {
             for (Mago a : listaMagos) {
                 bw.writeObject(a);
             }
+            bw.flush();
+            
         } catch (Exception e) {
         }finally{
             try {
